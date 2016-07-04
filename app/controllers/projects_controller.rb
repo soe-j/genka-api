@@ -2,9 +2,9 @@ class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :destroy]
 
   # GET /projects
-  # GET /projects.json
   def index
     @projects = Project.all
+    render json: @projects
   end
 
   # GET /projects/1
