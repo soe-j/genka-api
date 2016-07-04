@@ -6,7 +6,7 @@ class TopControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should toute to top index" do
-    assert_routing '/', controller: "top", action: "index"
+  test "should route to top index" do
+    assert_routing '/', controller: "top", action: "index", format: "json"
   end
 end
