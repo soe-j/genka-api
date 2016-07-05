@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :stages
   resources :projects, format: "json"
   root 'top#index', format: "json"
 
