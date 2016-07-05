@@ -28,7 +28,6 @@ class ProjectsControllerTest < ActionController::TestCase
     assert_difference('Project.count', -1) do
       delete :destroy, id: @project
     end
-
-    assert_redirected_to projects_path
+    assert_response 204
   end
 end
