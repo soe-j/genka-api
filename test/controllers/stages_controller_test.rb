@@ -11,17 +11,11 @@ class StagesControllerTest < ActionController::TestCase
     assert_not_nil assigns(:stages)
   end
 
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
-
   test "should create stage" do
     assert_difference('Stage.count') do
-      post :create, stage: {  }
+      post :create, stage: { name: @stage.name }
     end
-
-    assert_redirected_to stage_path(assigns(:stage))
+    assert_response :created
   end
 
   test "should show stage" do
@@ -29,21 +23,10 @@ class StagesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get edit" do
-    get :edit, id: @stage
-    assert_response :success
-  end
-
-  test "should update stage" do
-    patch :update, id: @stage, stage: {  }
-    assert_redirected_to stage_path(assigns(:stage))
-  end
-
   test "should destroy stage" do
     assert_difference('Stage.count', -1) do
       delete :destroy, id: @stage
     end
-
-    assert_redirected_to stages_path
+    assert_response :no_content
   end
 end
