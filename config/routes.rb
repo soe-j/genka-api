@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :periods
   resources :members
   resources :stages,   format: "json"
   resources :projects, format: "json"
