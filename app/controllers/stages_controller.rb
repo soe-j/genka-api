@@ -1,24 +1,15 @@
 class StagesController < ApplicationController
-  before_action :set_stage, only: [:show, :edit, :update, :destroy]
+  before_action :set_stage, only: [:show, :destroy]
 
   # GET /stages
-  # GET /stages.json
   def index
     @stages = Stage.all
+    render json: @stages
   end
 
   # GET /stages/1
-  # GET /stages/1.json
   def show
-  end
-
-  # GET /stages/new
-  def new
-    @stage = Stage.new
-  end
-
-  # GET /stages/1/edit
-  def edit
+    render json: @stage
   end
 
   # POST /stages
@@ -26,39 +17,17 @@ class StagesController < ApplicationController
   def create
     @stage = Stage.new(stage_params)
 
-    respond_to do |format|
-      if @stage.save
-        format.html { redirect_to @stage, notice: 'Stage was successfully created.' }
-        format.json { render :show, status: :created, location: @stage }
-      else
-        format.html { render :new }
-        format.json { render json: @stage.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /stages/1
-  # PATCH/PUT /stages/1.json
-  def update
-    respond_to do |format|
-      if @stage.update(stage_params)
-        format.html { redirect_to @stage, notice: 'Stage was successfully updated.' }
-        format.json { render :show, status: :ok, location: @stage }
-      else
-        format.html { render :edit }
-        format.json { render json: @stage.errors, status: :unprocessable_entity }
-      end
+    if @stage.save
+      render json: @project, status: :created
+    else
+      render json: @stage.errors, status: :unprocessable_entity
     end
   end
 
   # DELETE /stages/1
-  # DELETE /stages/1.json
   def destroy
     @stage.destroy
-    respond_to do |format|
-      format.html { redirect_to stages_url, notice: 'Stage was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    head :no_content
   end
 
   private
@@ -69,6 +38,6 @@ class StagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def stage_params
-      params[:stage]
+      params.require(:stage).permit(:name)
     end
 end
