@@ -11,17 +11,16 @@ class PeriodsControllerTest < ActionController::TestCase
     assert_not_nil assigns(:periods)
   end
 
-  test "should get new" do
-    get :new
-    assert_response :success
-  end
-
   test "should create period" do
     assert_difference('Period.count') do
-      post :create, period: { member_id: @period.member_id, process_id: @period.process_id, project_id: @period.project_id, start_time: @period.start_time }
+      post :create, period: {
+        member_id:  @period.member_id,
+        process_id: @period.process_id,
+        project_id: @period.project_id,
+        start_time: @period.start_time
+      }
     end
-
-    assert_redirected_to period_path(assigns(:period))
+    assert_response :created
   end
 
   test "should show period" do
@@ -29,21 +28,10 @@ class PeriodsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get edit" do
-    get :edit, id: @period
-    assert_response :success
-  end
-
-  test "should update period" do
-    patch :update, id: @period, period: { member_id: @period.member_id, process_id: @period.process_id, project_id: @period.project_id, start_time: @period.start_time }
-    assert_redirected_to period_path(assigns(:period))
-  end
-
   test "should destroy period" do
     assert_difference('Period.count', -1) do
       delete :destroy, id: @period
     end
-
-    assert_redirected_to periods_path
+    assert_response :no_content
   end
 end
