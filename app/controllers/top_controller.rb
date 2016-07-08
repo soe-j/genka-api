@@ -1,5 +1,5 @@
 class TopController < ApplicationController
   def index
-    render json: {resources: %w(projects, processes, members)}
+    render json: {resources: %w(projects processes members periods)}
   end
 end
