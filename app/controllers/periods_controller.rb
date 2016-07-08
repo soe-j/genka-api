@@ -2,63 +2,31 @@ class PeriodsController < ApplicationController
   before_action :set_period, only: [:show, :edit, :update, :destroy]
 
   # GET /periods
-  # GET /periods.json
   def index
     @periods = Period.all
+    render json: @periods
   end
 
   # GET /periods/1
-  # GET /periods/1.json
   def show
-  end
-
-  # GET /periods/new
-  def new
-    @period = Period.new
-  end
-
-  # GET /periods/1/edit
-  def edit
+    render json: @period
   end
 
   # POST /periods
-  # POST /periods.json
   def create
     @period = Period.new(period_params)
 
-    respond_to do |format|
-      if @period.save
-        format.html { redirect_to @period, notice: 'Period was successfully created.' }
-        format.json { render :show, status: :created, location: @period }
-      else
-        format.html { render :new }
-        format.json { render json: @period.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /periods/1
-  # PATCH/PUT /periods/1.json
-  def update
-    respond_to do |format|
-      if @period.update(period_params)
-        format.html { redirect_to @period, notice: 'Period was successfully updated.' }
-        format.json { render :show, status: :ok, location: @period }
-      else
-        format.html { render :edit }
-        format.json { render json: @period.errors, status: :unprocessable_entity }
-      end
+    if @period.save
+      render json: @period, status: :created
+    else
+      render json: @period.errors, status: :unprocessable_entity
     end
   end
 
   # DELETE /periods/1
-  # DELETE /periods/1.json
   def destroy
     @period.destroy
-    respond_to do |format|
-      format.html { redirect_to periods_url, notice: 'Period was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    head :no_content
   end
 
   private
