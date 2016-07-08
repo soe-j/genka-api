@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
-  resources :periods
-  resources :members
+  resources :periods,  format: "json"
+  resources :members,  format: "json"
   resources :stages,   format: "json"
   resources :projects, format: "json"
-  root 'top#index', format: "json"
+  root 'top#index',    format: "json"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
