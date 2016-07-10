@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20160707003453) do
 
   create_table "periods", force: :cascade do |t|
     t.integer  "project_id"
-    t.integer  "process_id"
+    t.integer  "stage_id"
     t.integer  "member_id"
     t.datetime "start_at"
   end
