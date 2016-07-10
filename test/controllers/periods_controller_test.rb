@@ -14,10 +14,10 @@ class PeriodsControllerTest < ActionController::TestCase
   test "should create period" do
     assert_difference('Period.count') do
       post :create, period: {
-        member_id:  @period.member_id,
-        stage_id:   @period.stage_id,
-        project_id: @period.project_id,
-        start_at:   @period.start_at
+        project_id: projects(:one).id,
+        stage_id:   stages(:one).id,
+        member_id:  members(:one).id,
+        start_at:   start_at
       }
     end
     assert_response :created
