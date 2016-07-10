@@ -13,7 +13,7 @@ class ProjectsControllerTest < ActionController::TestCase
 
   test "should create project" do
     assert_difference('Project.count') do
-      post :create, project: { name: @project.name }
+      post :create, project: { name: "abc" }
     end
     assert_response :created
   end
