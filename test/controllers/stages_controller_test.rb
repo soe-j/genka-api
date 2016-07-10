@@ -13,7 +13,7 @@ class StagesControllerTest < ActionController::TestCase
 
   test "should create stage" do
     assert_difference('Stage.count') do
-      post :create, stage: { name: @stage.name }
+      post :create, stage: { name: "abc" }
     end
     assert_response :created
   end
