@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20160707003453) do
 
   create_table "members", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
   end
 
   create_table "periods", force: :cascade do |t|
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20160707003453) do
   end
 
   create_table "stages", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
   end
 
 end
