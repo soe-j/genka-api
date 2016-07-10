@@ -18,10 +18,10 @@ ActiveRecord::Schema.define(version: 20160707003453) do
   end
 
   create_table "periods", force: :cascade do |t|
-    t.integer  "project_id"
-    t.integer  "stage_id"
-    t.integer  "member_id"
-    t.datetime "start_at"
+    t.integer  "project_id", null: false
+    t.integer  "stage_id",   null: false
+    t.integer  "member_id",  null: false
+    t.datetime "start_at",   null: false
   end
 
   create_table "projects", force: :cascade do |t|
