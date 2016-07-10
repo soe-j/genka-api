@@ -2,12 +2,12 @@
 
 one:
   project_id: 1
-  process_id: 1
+  stage_id: 1
   member_id: 1
   start_at: 2016-07-07 09:34:53
 
 two:
   project_id: 1
-  process_id: 1
+  stage_id: 1
   member_id: 1
   start_at: 2016-07-07 09:34:53
