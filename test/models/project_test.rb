@@ -24,7 +24,7 @@ class ProjectTest < ActiveSupport::TestCase
     alphanumeric_name_project = Project.new(name: "eng123")
     assert alphanumeric_name_project.save
 
-    %w(日本語 abc@def).each do |bad_name|
+    %w(日本語 abc@def _dec aka:d <ab>).each do |bad_name|
       assert_not Project.new(name: bad_name).save
     end
   end
