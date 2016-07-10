@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20160707003453) do
   end
 
   create_table "projects", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
   end
 
   create_table "stages", force: :cascade do |t|
