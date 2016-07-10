@@ -1,4 +1,6 @@
 class Project < ActiveRecord::Base
+  has_many :periods
+
   validates :name,
     presence: true,
     uniqueness: true,
