@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20160707003453) do
     t.integer  "project_id"
     t.integer  "process_id"
     t.integer  "member_id"
-    t.datetime "start_time"
+    t.datetime "start_at"
   end
 
   create_table "projects", force: :cascade do |t|
