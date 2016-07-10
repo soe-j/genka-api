@@ -13,7 +13,7 @@ class MembersControllerTest < ActionController::TestCase
 
   test "should create member" do
     assert_difference('Member.count') do
-      post :create, member: { name: @member.name }
+      post :create, member: { name: "abc" }
     end
     assert_response :created
   end
