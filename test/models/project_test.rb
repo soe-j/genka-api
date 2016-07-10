@@ -23,7 +23,9 @@ class ProjectTest < ActiveSupport::TestCase
   test "should save with name with only Alphanumeric" do
     alphanumeric_name_project = Project.new(name: "eng123")
     assert alphanumeric_name_project.save
-    assert_not Project.new(name: "日本語").save
-    assert_not Project.new(name: "abc@def").save
+
+    %w(日本語 abc@def).each do |bad_name|
+      assert_not Project.new(name: bad_name).save
+    end
   end
 end
