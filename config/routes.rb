@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :stages,   format: "json"
   resources :projects, format: "json"
   root 'top#index',    format: "json"
+  get '/new', to: 'top#new'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

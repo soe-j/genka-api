@@ -1,0 +1,35 @@
+make period
+<%= form_for(@period) do |f| %>
+  <%= f.label :project_id %>
+  <%= f.number_field :project_id %><br>
+  <%= f.label :stage_id %>
+  <%= f.number_field :stage_id %><br>
+  <%= f.label :member_id %>
+  <%= f.number_field :member_id %><br>
+  <%= f.submit %>
+<% end %>
+<br>
+
+make project
+<%= form_for(@project) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+  <%= f.submit %>
+<% end %>
+<br>
+
+make stage
+<%= form_for(@stage) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+  <%= f.submit %>
+<% end %>
+<br>
+
+make member
+<%= form_for(@member) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+  <%= f.submit %>
+<% end %>
+<br>
