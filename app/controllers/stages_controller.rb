@@ -13,7 +13,6 @@ class StagesController < ApplicationController
   end
 
   # POST /stages
-  # POST /stages.json
   def create
     @stage = Stage.new(stage_params)
 
