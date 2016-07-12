@@ -17,7 +17,7 @@ class PeriodsControllerTest < ActionController::TestCase
         project_id: projects(:one).id,
         stage_id:   stages(:one).id,
         member_id:  members(:one).id,
-        start_at:   start_at
+        start_at:   DateTime.now
       }
     end
     assert_response :created
