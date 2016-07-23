@@ -12,7 +12,12 @@ class PeriodsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create period" do
     assert_difference('Period.count') do
-      post periods_url, params: { period: { member_id: @period.member_id, project_id: @period.project_id, stage_id: @period.stage_id } }, as: :json
+      post periods_url, params: { period: {
+        project_id: projects(:one).id,
+        stage_id:   stages(:one).id,
+        member_id:  members(:one).id,
+        start_at:   DateTime.now
+      } }, as: :json
     end
 
     assert_response 201
@@ -24,7 +29,12 @@ class PeriodsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update period" do
-    patch period_url(@period), params: { period: { member_id: @period.member_id, project_id: @period.project_id, stage_id: @period.stage_id } }, as: :json
+    patch period_url(@period), params: { period: {
+      project_id: projects(:one).id,
+      stage_id:   stages(:one).id,
+      member_id:  members(:one).id,
+      start_at:   DateTime.now
+    } }, as: :json
     assert_response 200
   end
 

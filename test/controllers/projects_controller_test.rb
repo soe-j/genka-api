@@ -12,7 +12,7 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create project" do
     assert_difference('Project.count') do
-      post projects_url, params: { project: { name: @project.name } }, as: :json
+      post projects_url, params: { project: { name: "abc123" } }, as: :json
     end
 
     assert_response 201
