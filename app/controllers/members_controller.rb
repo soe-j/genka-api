@@ -3,9 +3,13 @@ class MembersController < ApplicationController
 
   # GET /members
   def index
-    @members = Member.all
-
-    render json: @members
+    if params[:name]
+      @member = Member.find_by(name: params[:name])
+      render json: @member
+    else
+      @members = Member.all
+      render json: @members
+    end
   end
 
   # GET /members/1

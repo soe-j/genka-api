@@ -23,6 +23,11 @@ class MembersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should show member is found by name" do
+    get members_url, params: { name: @member.name }, as: :json
+    assert_response :success
+  end
+
   test "should update member" do
     patch member_url(@member), params: { member: { name: @member.name } }, as: :json
     assert_response 200
