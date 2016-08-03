@@ -3,7 +3,11 @@ class PeriodsController < ApplicationController
 
   # GET /periods
   def index
-    @periods = Period.all
+    if params[:member_id]
+      @periods = Period.where(member_id: params[:member_id])
+    else
+      @periods = Period.all
+    end
 
     render json: @periods
   end
