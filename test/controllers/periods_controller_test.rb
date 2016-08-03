@@ -10,6 +10,17 @@ class PeriodsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should get index member periods" do
+    @period = Period.create(project_id: 1, stage_id: 1, member_id: 1)
+    @other_member_period = Period.create(project_id: 1, stage_id: 1, member_id: 2)
+    get periods_url, params: {
+      member_id: @period.member_id
+    }, as: :json
+    assert_response :success
+    assert_not_empty assigns(:periods)
+    assert_empty assigns(:periods).select{|period| period.member_id != @period.member_id }
+  end
+
   test "should create period" do
     assert_difference('Period.count') do
       post periods_url, params: { period: {
