@@ -11,5 +11,6 @@ class ReportsControllerTest < ActionDispatch::IntegrationTest
   test "should show report for member" do
     get member_reports_url(member_id: @member), as: :json
     assert_response :success
+    assert_not_empty assigns(:periods)
   end
 end
