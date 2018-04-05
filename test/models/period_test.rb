@@ -33,4 +33,15 @@ class PeriodTest < ActiveSupport::TestCase
     assert Period.new(project: @project, stage: @stage, member: @member).save
     assert @period.start_at
   end
+
+  test "should save period with start_at" do
+    start_at_str = '201610201122'
+    period = Period.new(project: @project, stage: @stage, member: @member, start_at: start_at_str)
+    assert period.save
+    assert_equal period.start_at, DateTime.parse(start_at_str)
+  end
+
+  test "should not save period with invalid start_at" do
+    assert_not Period.new(project: @project, stage: @stage, member: @member, start_at: '20161020112').save
+  end
 end
